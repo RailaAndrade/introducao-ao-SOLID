@@ -1,0 +1,139 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+        "title":"Documentation",
+        "description":" introducao ao solid api",
+        "version":"1.0.0"
+    },
+    "paths":{
+        "/users":{
+            "post":{
+                "tags":["User"],
+                "summary":"create a user",
+                "description":"create a new user",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "name":{
+                                        "type":"string"
+                                    },
+                                    "email":{
+                                        "type":"string"
+                                    },
+                                    "admin":{
+                                        "type":"boolean"
+                                    }
+                                },
+                                "example":{
+                                    "name":"userTest",
+                                    "email":"user@email.com",
+                                    "admin":false
+
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get":{
+                "tags":["User"],
+                "summary":"list all users",
+                "description":"list all users",
+                "responses":{
+                    "200":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"array",
+                                "items":{
+                                    "type":"object",
+                                    "properties":{
+                                        "name":{
+                                            "type":"string"
+                                        },
+                                        "email":{
+                                            "type":"string"
+                                        },
+                                        "admin":{
+                                            "type":"boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+         
+            }
+        },
+        "users/{id}":{
+
+            "get":{
+                "tags":["User"],
+                "summary":"find user by id ",
+                "description":"find an user by id ",
+                "responses":{
+                    "200":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                             
+                                "type":"object",
+                                "properties":{
+                                    "name":{
+                                        "type":"string"
+                                    },
+                                    "email":{
+                                        "type":"string"
+                                    },
+                                    "admin":{
+                                        "type":"boolean"
+                                    }
+                                }
+                            
+                            }
+                        }
+                    }
+                }
+                }
+         
+            }
+            
+        },
+        "users/{id}/admin":{
+
+            "patch":{
+                "tags":["User"],
+                "summary":"turn user into admin ",
+                "description":"turn user into admin ",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                          
+                                    "admin":{
+                                        "type":"boolean",
+                                        "content":true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                    
+                    
+               
+            }
+                
+         
+            
+            
+        }
+    }
+}
